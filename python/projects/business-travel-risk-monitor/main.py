@@ -8,7 +8,6 @@ sample_trip = {
     "travel_date": "11-09-2026",
     "return_date": "21-09-2026",
     "purpose": "festival"
-    
 }
 
 

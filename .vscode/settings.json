@@ -1,0 +1,6 @@
+{
+  "editor.inlineSuggest.enabled": false,
+  "editor.quickSuggestions": false,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.tabCompletion": "off"
+}
