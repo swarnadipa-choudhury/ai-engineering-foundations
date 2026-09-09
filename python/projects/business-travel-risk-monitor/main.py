@@ -51,16 +51,41 @@ def display_formatted_trip_details(key):
     else:
         return "invalid key"
 
-for trip in trips:
+
+def print_trip_details(trip):
     print('================================')
     for (key, value) in trip.items():
         if key == 'trip_id':
-             print(f'BUSINESS TRIP: {value}')
-             print('================================')
+                 print(f'BUSINESS TRIP: {value}')
+                 print('================================')
         elif isinstance(value, dict):
-            for (k, v) in value.items():
-                print(f"{display_formatted_trip_details(k)} : {v}")  
+                for (k, v) in value.items():
+                    print(f"{display_formatted_trip_details(k)} : {v}")  
         else:
-            print(f"{display_formatted_trip_details(key)} : {value}")
+                print(f"{display_formatted_trip_details(key)} : {value}")
+  
     
-    print()
+for trip in trips:
+   print_trip_details(trip) 
+    
+print()
+
+
+# Enter Trip ID: TR002
+# Trip found?
+#  ├── Yes → return/display trip
+#  └── No  → indicate not found
+
+
+
+def search_trip_id(input_trip_id):
+    id_found = False
+    for trip in trips:
+        if trip["trip_id"] == input_trip_id:
+            id_found = True
+            print_trip_details(trip)           
+    if not id_found:
+        print('ID not found.')
+    
+
+search_trip_id(input("Please enter trip ID: "))
