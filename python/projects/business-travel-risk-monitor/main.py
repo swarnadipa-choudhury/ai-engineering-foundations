@@ -205,6 +205,10 @@ BUSINESS TRAVEL SUMMARY
 display_travel_summary(trips)
 
 
+# ============================================================
+# TASK 5 — Find a Business Trips by Country
+# ============================================================
+
 # find_trips_by_country(trips, country)
 # Please enter country: Japan
 # It should display Hermione's Tokyo trip.
