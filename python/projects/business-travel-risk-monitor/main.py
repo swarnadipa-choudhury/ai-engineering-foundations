@@ -72,7 +72,7 @@ trips = [{
         "country": "France"
     },
 
-    "travel_date": "1-09-2026",
+    "travel_date": "11-09-2026",
     "return_date": "10-09-2026",
     "purpose": "Potions conference"
 
@@ -206,7 +206,7 @@ display_travel_summary(trips)
 
 
 # ============================================================
-# TASK 5 — Find a Business Trips by Country
+# TASK 6 — Find a Business Trips by Country
 # ============================================================
 
 # find_trips_by_country(trips, country)
@@ -226,3 +226,29 @@ def find_trips_by_country(trips, country):
     
 input_country = input("Please enter country: ")
 find_trips_by_country(trips, input_country)
+
+
+# ============================================================
+# TASK 7 — Upcoming Business Trips
+# ============================================================
+
+# display_upcoming_trips(trips)
+# Please enter date (DD-MM-YYYY):
+# If the user enters: 11-09-2026
+# It should display Harry's Paris trip.
+# If they enter: 15-09-2026
+# It should display:
+# No trips found for 15-09-2026.
+
+def display_upcoming_trips(trips):
+    input_date = input("Please enter date (DD-MM-YYYY): ")
+    is_trip_found = False
+    for trip in trips:
+        if trip["travel_date"] == input_date:
+            is_trip_found = True
+            print_trip_details(trip)
+    if not is_trip_found:
+        print(f"No trips found for {input_date}.")
+
+    
+display_upcoming_trips(trips)  
