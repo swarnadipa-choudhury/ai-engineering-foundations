@@ -2,87 +2,19 @@
 # PHASE 1 — TRAVEL OPERATIONS CLI
 # ============================================================
 
-
-# ============================================================
-# TASK 1 & 2 — Create and display a single business trip
-# ============================================================
-
-trips = [{
-
-    "trip_id": "TR001",
-
-    "employee_name": "Harry Potter",
-
-    "destination": {
-        "city": "Paris",
-        "country": "France"
-    },
-
-    "travel_date": "11-09-2026",
-    "return_date": "21-09-2026",
-    "purpose": "World Aurors convention"
-
-},
-
-# ============================================================
-# TASK 3 — Add multiple business trips
-# ============================================================
-
-{
-
-    "trip_id": "TR002",
-
-    "employee_name": "Hermione Granger",
-
-    "destination": {
-        "city": "Tokyo",
-        "country": "Japan"
-    },
-
-    "travel_date": "11-10-2026",
-    "return_date": "16-10-2026",
-    "purpose": "Witch/Wizard of the century Awards"
-
-},
-
-{
-
-    "trip_id": "TR003",
-
-    "employee_name": "Ron Weasley",
-
-    "destination": {
-        "city": "Buenos Aires",
-        "country": "Argentina"
-    },
-
-    "travel_date": "23-09-2026",
-    "return_date": "29-09-2026",
-    "purpose": "Quidditch finals"
-
-},
-{
-
-    "trip_id": "TR004",
-
-    "employee_name": "Severus Snape",
-
-    "destination": {
-        "city": "Paris",
-        "country": "France"
-    },
-
-    "travel_date": "11-09-2026",
-    "return_date": "10-09-2026",
-    "purpose": "Potions conference"
-
-}
-]
+from pathlib import Path
+import json
 
 
-# ============================================================
-# TASK 2/3 — Format and display trip details
-# ============================================================
+def load_trips():
+    data_dir = Path('data')
+    
+    json_file = data_dir / 'trips.json'
+
+    with open (json_file, 'r') as f:
+        trips = json.load(f)
+    return trips
+
 
 def display_formatted_trip_details(key):
 
@@ -132,12 +64,6 @@ def print_trip_details(trip):
             print(f"{display_formatted_trip_details(key)} : {value}")
 
 
-# Display all trips
-for trip in trips:
-    print_trip_details(trip)
-
-print()
-
 
 # ============================================================
 # TASK 4 — Find a Business Trip by Trip ID
@@ -157,10 +83,6 @@ def search_trip_id(input_trip_id):
     if not id_found:
         print('ID not found.')
 
-
-search_trip_id(input("Please enter trip ID: "))
-
-print()
 
 
 # ============================================================
@@ -202,7 +124,7 @@ BUSINESS TRAVEL SUMMARY
         print(f"{destination[0]}, {destination[1]}")
 
 
-display_travel_summary(trips)
+
 
 
 # ============================================================
@@ -224,8 +146,7 @@ def find_trips_by_country(trips, country):
     if not trip_found:
         print(f"No trips found for {country}.")
     
-input_country = input("Please enter country: ")
-find_trips_by_country(trips, input_country)
+
 
 
 # ============================================================
@@ -251,4 +172,22 @@ def display_upcoming_trips(trips):
         print(f"No trips found for {input_date}.")
 
     
-display_upcoming_trips(trips)  
+
+
+try:
+    trips = load_trips()
+# Display all trips
+    for trip in trips:
+        print_trip_details(trip)
+    search_trip_id(input("Please enter trip ID: "))
+    print()
+    display_travel_summary(trips)
+    print()
+    input_country = input("Please enter country: ")
+    print()
+    find_trips_by_country(trips, input_country)
+    print()
+    display_upcoming_trips(trips)  
+    print()
+except FileNotFoundError:
+     print("File doesn't exist")

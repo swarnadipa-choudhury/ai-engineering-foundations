@@ -1,0 +1,54 @@
+
+[
+
+
+{
+
+    "trip_id": "TR002",
+
+    "employee_name": "Hermione Granger",
+
+    "destination": {
+        "city": "Tokyo",
+        "country": "Japan"
+    },
+
+    "travel_date": "11-10-2026",
+    "return_date": "16-10-2026",
+    "purpose": "Witch/Wizard of the century Awards"
+
+},
+
+{
+
+    "trip_id": "TR003",
+
+    "employee_name": "Ron Weasley",
+
+    "destination": {
+        "city": "Buenos Aires",
+        "country": "Argentina"
+    },
+
+    "travel_date": "23-09-2026",
+    "return_date": "29-09-2026",
+    "purpose": "Quidditch finals"
+
+},
+{
+
+    "trip_id": "TR004",
+
+    "employee_name": "Severus Snape",
+
+    "destination": {
+        "city": "Paris",
+        "country": "France"
+    },
+
+    "travel_date": "11-09-2026",
+    "return_date": "10-09-2026",
+    "purpose": "Potions conference"
+
+}
+]
