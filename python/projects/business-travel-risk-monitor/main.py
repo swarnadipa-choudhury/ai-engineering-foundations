@@ -191,3 +191,5 @@ try:
     print()
 except FileNotFoundError:
      print("File doesn't exist")
+except json.JSONDecodeError:
+    print("Trip data file contains invalid JSON.")
