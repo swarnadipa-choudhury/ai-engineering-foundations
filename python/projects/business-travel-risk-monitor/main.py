@@ -89,3 +89,38 @@ def search_trip_id(input_trip_id):
     
 
 search_trip_id(input("Please enter trip ID: "))
+print()
+
+
+# ================================
+# BUSINESS TRAVEL SUMMARY
+# ================================
+# Total Trips: 3
+# Total Employees: 3
+
+# Destinations:
+# - Paris, France
+# - Tokyo, Japan
+# - Buenos Aires, Argentina
+
+
+
+def display_travel_summary(trips):
+    print('''================================
+BUSINESS TRAVEL SUMMARY
+================================''')  
+    total_trips = len(trips)
+    total_employees = set()
+    destinations = []
+    print(f"Total Trips: {total_trips}")
+    
+    for trip in trips:
+        total_employees.add(trip["employee_name"])
+        destinations.append((trip["destination"]["city"], trip["destination"]["country"]))
+    print(f"Total Employees: {len(total_employees)}")
+    print()
+    print("Destinations: ")
+    for destination in destinations:
+        print(f"{destination[0]}, {destination[1]}")
+    
+display_travel_summary(trips)
