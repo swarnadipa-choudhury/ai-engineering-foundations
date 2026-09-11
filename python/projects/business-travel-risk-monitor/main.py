@@ -172,10 +172,26 @@ def display_upcoming_trips(trips):
         print(f"No trips found for {input_date}.")
 
     
+#save_trips(trips)
 
+# It should:
+
+# Receive the trips list as a parameter.
+# Locate data/trips.json.
+# Open the file in write mode.
+# Write the complete trips list to JSON.
+# Format the JSON so it's human-readable.
+
+def save_trips(trips):
+    data_dir = Path('data')
+    json_file = data_dir / 'trips.json'
+    with open (json_file, 'w') as f:
+        json.dump(trips, f, indent=4)
+        
 
 try:
     trips = load_trips()
+    save_trips(trips)
 # Display all trips
     for trip in trips:
         print_trip_details(trip)
@@ -193,3 +209,7 @@ except FileNotFoundError:
      print("File doesn't exist")
 except json.JSONDecodeError:
     print("Trip data file contains invalid JSON.")
+    
+    
+    
+
